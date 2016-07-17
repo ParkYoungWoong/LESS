@@ -1,10 +1,9 @@
 # LESS
 
 ### if 조건문
-- `.if_color()` (함수)의 `@a` (매개변수)가 값을 받아서 `when` 키워드로 값을 체크, 값이 true 이면 실행
-- 요소의 가로너비를 체크하여 '100px' 초과일 경우 '100px'로 초기화시키는 코드
+- 함수를 선언하고 `when` 키워드를 사용하여 조건을 만듬;
+- 함수를 호출할 때 `arguments`를 넣어 조건을 체크;
 ```less
-// 조건 함수
 .check_width(@a) when (@a > 100px){
   & {
     width: 100px;
@@ -17,7 +16,7 @@
   width: @width;
   height: 100px;
   background: red;
-  .check_width(@width); // 함수 호출
+  .check_width(@width);
 }
 .e2 {
   @width: 104px;
@@ -25,11 +24,36 @@
   width: @width;
   height: 100px;
   background: blue;
-  .check_width(@width); // 함수 호출
+  .check_width(@width); // 
 }
 ```
 
+### if else 조건문
+- 함수를 선언하고 `when` 키워드를 사용하여 조건을 만듬;
+- `else` 구문을 만들기 위해 함수를 추가 선언하고 `when` 키워드를 사용하여 추가의 조건을 만듬;
+- 조건에 키워드로 `,`(쉼표)를 사용하면 `||`(또는)의 의미가 되고
+- 조건에 키워드로 `and`를 사용하면 `&&`(그리고)의 의마가 된다;
+```less
+.check_width(@a) when (@a = 20px), (@a = 100px) {
+  & {
+    background: green;
+  }
+}
+.check_width(@a) when (@a > 200px) and (@a < 300px) {
+  & {
+    background: blue;
+  }
+}
 
+.e1 {
+  @width: 100px;
+
+  width: @width;
+  height: 100px;
+  background: orange;
+  .check_width(@width);
+}
+```
 
 ### for (Loop) 반복문
 ```js
