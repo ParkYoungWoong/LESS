@@ -120,3 +120,16 @@ unit(2%, px); // 2px
   line-height: @lh * 50; // 100%(@lh = 2%)
 }
 ```
+
+___
+
+## extract()
+- LESS 배열(리스트)의 지정된 값을 반환함
+- extract(list, index)
+```less
+@list: red, orange, yellow, green, blue, darkblue, violet;
+
+.element1 {
+  background: extract(@list, 4); // green
+}
+```
