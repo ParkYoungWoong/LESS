@@ -104,3 +104,19 @@ ___
 
 ___
 
+### unit()
+- `px`, `%` 등의 '단위'를 추가하거나 삭제할 수 있음
+```less
+unit(2px); // 2
+unit(2, %); // 2%
+unit(2%, px); // 2px
+```
+```less
+.e_1 {
+  @val: 2px;
+  @lh: unit(@val, %);
+
+  letter-spacing: @val;
+  line-height: @lh * 50;
+}
+```
