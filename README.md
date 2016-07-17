@@ -112,11 +112,11 @@ unit(2, %); // 2%
 unit(2%, px); // 2px
 ```
 ```less
-.e_1 {
+.e1 {
   @val: 2px;
   @lh: unit(@val, %);
 
-  letter-spacing: @val;
-  line-height: @lh * 50;
+  letter-spacing: @val; // 2px
+  line-height: @lh * 50; // 100%(@lh = 2%)
 }
 ```
