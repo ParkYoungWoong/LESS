@@ -28,11 +28,12 @@
 }
 ```
 
-### if else 조건문(||, &&)
+### if else 조건문(||, &&, default())
 - 함수를 선언하고 `when` 키워드를 사용하여 조건을 만듬
 - `else` 구문을 만들기 위해 함수를 추가 선언하고 `when` 키워드를 사용하여 추가의 조건을 만듬
 - 조건에 키워드로 `,`(쉼표)를 사용하면 `||`(또는)의 의미가 되고
 - 조건에 키워드로 `and`를 사용하면 `&&`(그리고)의 의미가 된다
+- 조건에 `default()`를 사용하면 위의 조건이 없을 때 실행할 구문을 작성할 수 있음
 ```less
 .check_width(@a) when (@a = 20px), (@a = 100px) {
   & {
@@ -42,6 +43,11 @@
 .check_width(@a) when (@a > 200px) and (@a < 300px) {
   & {
     background: blue;
+  }
+}
+.check_width(@a) when (default()) {
+  & {
+    background: violet;
   }
 }
 
